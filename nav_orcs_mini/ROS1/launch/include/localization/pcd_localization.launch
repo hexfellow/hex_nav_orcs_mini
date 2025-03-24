@@ -1,0 +1,62 @@
+<!--#######################################-->
+<!-- Copyright (c) 2024  Dong Zhaorui.     -->
+<!-- All rights reserved.                  -->
+<!-- Author: Dong Zhaorui 847235539@qq.com -->
+<!-- Date  : 2024-05-27                    -->
+<!--#######################################-->
+
+<launch>
+    <arg name="env_mode" default="mixed" doc="indoor, outdoor, mixed" />
+    <arg name="localization_mode" default="wheel" doc="wheel, ekf, fastlio" />
+    <arg name="map_name" default="default"/>
+
+    # pcd localization
+    <node name="hex_pcd_localization" pkg="hex_pcd_localization" type="hex_pcd_localization" output="screen">
+        # parameters
+        <param name="target_map_path" value="$(find hex_map_3d)/output/$(arg map_name)/FinalMap.pcd" />
+        <rosparam command="load" file="$(find hex_nav_orcs_mini)/nav_orcs_mini/ROS1/launch/include/localization/config/pcd_localization_$(arg env_mode).yaml" />
+        # subscribe
+        <remap from="init_trans" to="initialpose" />
+        <remap from="lidar_points" to="processed_cloud" />
+        # publish
+        <remap from="sensor_trans" to="sensor_trans" />
+        <remap from="map_points" to="map_points" />
+        <remap from="debug_points" to="debug_points" />
+    </node>
+
+    # robot localization
+    <group if="$(eval arg('localization_mode') == 'ekf')">
+        <include file="$(find hex_nav_orcs_mini)/nav_orcs_mini/ROS1/launch/include/localization/robot_localization.launch" />
+        <node name='odom_tf' pkg='hex_nav_orcs_mini' type='odom_tf.py' output='screen' >
+            # parameter
+            <rosparam param="sensor_in_base">[0.16013, 0.0000, 0.22777, 1.0000000, 0.0000000, 0.0000000, 0.0000000]</rosparam>
+            # subscribe
+            <remap from="/odom" to="/odometry/filtered" />
+        </node>
+    </group>
+
+    # fastlio localization
+    <group if="$(eval arg('localization_mode') == 'fastlio')">
+        <include file="$(find hex_nav_orcs_mini)/nav_orcs_mini/ROS1/launch/include/localization/fastlio_localization.launch" >
+            <arg name="env_mode" value="$(arg env_mode)" />
+        </include>
+        <node name='odom_tf' pkg='hex_nav_orcs_mini' type='odom_tf.py' output='screen' >
+            # parameter
+            <rosparam param="sensor_in_base">[0.16013, 0.0000, 0.22777, 0.6929114, -0.1409744, 0.1409744, -0.6929114]</rosparam>
+            # subscribe
+            <remap from="/odom" to="/lio_odom" />
+        </node>
+    </group>
+
+    # wheel localization
+    <group if="$(eval arg('localization_mode') == 'wheel')">
+        <node name='odom_tf' pkg='hex_nav_orcs_mini' type='odom_tf.py' output='screen' >
+            # parameter
+            <rosparam param="sensor_in_base">[0.16013, 0.0000, 0.22777, 1.0000000, 0.0000000, 0.0000000, 0.0000000]</rosparam>
+            # subscribe
+            <remap from="/odom" to="/odom" />
+        </node>
+    </group>
+        
+
+</launch>

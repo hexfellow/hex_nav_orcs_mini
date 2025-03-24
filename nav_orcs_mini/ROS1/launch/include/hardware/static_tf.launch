@@ -1,0 +1,4 @@
+<launch>
+    <param name="robot_description" command="$(find xacro)/xacro $(find hex_nav_orcs_mini)/nav_orcs_mini/ROS1/launch/include/hardware/config/mark2.urdf.xacro --inorder" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" />
+</launch>

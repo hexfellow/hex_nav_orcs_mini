@@ -1,0 +1,21 @@
+<!--#######################################-->
+<!-- Copyright (c) 2024  Dong Zhaorui.     -->
+<!-- All rights reserved.                  -->
+<!-- Author: Dong Zhaorui 847235539@qq.com -->
+<!-- Date  : 2024-05-27                    -->
+<!--#######################################-->
+
+<launch>
+
+    <!-- robot localization -->
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization" clear_params="true">
+        <rosparam command="load" file="$(find hex_nav_orcs_mini)/nav_orcs_mini/ROS1/launch/include/localization/config/wheel_imu.yaml" />
+        <!-- subscribe -->
+        <remap from="/odom/wheel" to="/odom"/>
+        <remap from="/imu/lidar" to="/livox/imu"/>
+        <!-- publish -->
+        <remap from="odometry/filtered" to="odometry/filtered" />
+        <remap from="accel/filtered" to="accel/filtered" />
+    </node>
+
+</launch>

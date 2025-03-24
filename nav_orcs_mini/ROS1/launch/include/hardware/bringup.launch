@@ -1,0 +1,9 @@
+<launch>
+
+    # drivers
+    <include file="$(find hex_nav_orcs_mini)/nav_orcs_mini/ROS1/launch/include/hardware/drivers.launch" />
+
+    # static_tf
+    <include file="$(find hex_nav_orcs_mini)/nav_orcs_mini/ROS1/launch/include/hardware/static_tf.launch" />
+
+</launch>

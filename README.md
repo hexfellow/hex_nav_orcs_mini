@@ -1,14 +1,12 @@
 # **hex_nav_orcs_mini**
 
-[English](README.md) | [简体中文](README_CN.md)
-
----
-
 ## **Overview**
 
 The **hex_nav_orcs_mini** repository provides demos and configuration parameters for the **ORCS MINI** navigation kit.
 
 [![wait](https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
+[Bilibili Url](https://www.bilibili.com/video/BV1GJ411x7h7)
 
 ### **Maintainer**
 
@@ -68,6 +66,8 @@ The **hex_nav_orcs_mini** repository provides demos and configuration parameters
 
 [![wait](https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
+[Bilibili Url](https://www.bilibili.com/video/BV1GJ411x7h7)
+
 1. Start the `Nav3D` container.
 
 2. Use `tmux` to create two windows for mapping and map saving.
@@ -95,6 +95,8 @@ The **hex_nav_orcs_mini** repository provides demos and configuration parameters
 ### **Navigation**
 
 [![wait](https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
+[Bilibili Url](https://www.bilibili.com/video/BV1GJ411x7h7)
 
 1. Start the `Nav3D` container.
 

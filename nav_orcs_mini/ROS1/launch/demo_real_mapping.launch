@@ -1,5 +1,5 @@
 <launch>
-    <arg name="env_mode" default="outdoor" doc="indoor, outdoor, mixed" />
+    <arg name="env_mode" default="indoor" doc="indoor, outdoor, mixed" />
 
     # hardware
     <include file="$(find hex_nav_orcs_mini)/nav_orcs_mini/ROS1/launch/include/hardware/bringup.launch" />

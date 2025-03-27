@@ -8,6 +8,10 @@ The **hex_nav_orcs_mini** repository provides demos and configuration parameters
 
 [Bilibili Url](https://www.bilibili.com/video/BV1GJ411x7h7)
 
+### **License**
+
+This project is licensed under the terms of the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
 ### **Maintainer**
 
 **[Dong Zhaorui](https://github.com/IBNBlank)**

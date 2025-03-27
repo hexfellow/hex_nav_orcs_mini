@@ -32,7 +32,7 @@ The **hex_nav_orcs_mini** repository provides demos and configuration parameters
 ### **Dependencies**
 
 - **Hardware:** [ORCS MINI Navigation Kit](https://www.hexfellow.com/)
-- **Hex Docker:** [`Nav3D` image](https://hub.docker.com/r/hexfellow/hex_docker_noetic_nav3d)
+- **Hex Docker:** [`Nav3D` image](https://hub.docker.com/r/hexfellow/hex-docker-noetic-nav3d)
 - **Hex Package:**
   - [hex_free_edge](https://github.com/hexfellow/hex_free_edge.git)
   - [hex_livox_preprocess](https://github.com/hexfellow/hex_livox_preprocess.git)
@@ -43,7 +43,7 @@ The **hex_nav_orcs_mini** repository provides demos and configuration parameters
 
 ### **Installation**
 
-1. Start the `Nav3D` container. Refer to [`Nav3D` image](https://hub.docker.com/r/hexfellow/hex_docker_noetic_nav3d) for more details.
+1. Start the `Nav3D` container. Refer to [`Nav3D` image](https://hub.docker.com/r/hexfellow/hex-docker-noetic-nav3d) for more details.
 
 2. Compile the packages in the container:
 
@@ -215,7 +215,7 @@ Hardware drivers are started via the `.launch` file located at `hex_nav_orcs_min
 
 ---
 
-## **Further Reading**
+## **Notes**
 
-1. Consult the related **Hex Package** for additional details.
-2. Experiment with modifying parameters in the `.launch` and `.yaml` files under `hex_nav_orcs_mini/launch` to observe different behaviors.
+1. The default `ip` address of the IPC of the kit is `192.168.1.50`.
+2. The default `WiFi` name of the kit is `HexRouter_xxxx`.

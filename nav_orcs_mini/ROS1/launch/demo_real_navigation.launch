@@ -1,11 +1,14 @@
 <launch>
+    <arg name="use_imu" default="false" />
     <arg name="env_mode" default="mixed" doc="indoor, outdoor, mixed" />
     <arg name="localization_mode" default="wheel" doc="wheel, ekf, fastlio" />
     <arg name="map_name" default="default" />
     <arg name="teb_planner" default="false" />
 
     # hardware
-    <include file="$(find hex_nav_orcs_mini)/nav_orcs_mini/ROS1/launch/include/hardware/bringup.launch" />
+    <include file="$(find hex_nav_orcs_mini)/nav_orcs_mini/ROS1/launch/include/hardware/bringup.launch" >
+        <arg name="use_imu" value="$(arg use_imu)" />
+    </include>
 
     # localization
     <include file="$(find hex_nav_orcs_mini)/nav_orcs_mini/ROS1/launch/include/localization/pcd_localization.launch">

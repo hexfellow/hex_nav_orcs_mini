@@ -1,7 +1,10 @@
 <launch>
+    <arg name="use_imu" default="false" />
 
     # drivers
-    <include file="$(find hex_nav_orcs_mini)/nav_orcs_mini/ROS1/launch/include/hardware/drivers.launch" />
+    <include file="$(find hex_nav_orcs_mini)/nav_orcs_mini/ROS1/launch/include/hardware/drivers.launch" >
+        <arg name="use_imu" value="$(arg use_imu)" />
+    </include>
 
     # static_tf
     <include file="$(find hex_nav_orcs_mini)/nav_orcs_mini/ROS1/launch/include/hardware/static_tf.launch" />

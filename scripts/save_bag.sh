@@ -14,4 +14,4 @@ if [ ! -d "$(rospack find hex_nav_orcs_mini)/bags" ]; then
     mkdir $(rospack find hex_nav_orcs_mini)/bags
 fi
 
-rosbag record -O $(rospack find hex_nav_orcs_mini)/bags/$bag_name /livox/imu /livox/lidar /odom 
+rosbag record -O $(rospack find hex_nav_orcs_mini)/bags/$bag_name /livox/imu /livox/lidar /odom /imu_data /magnetic_data
